@@ -3,6 +3,7 @@ import Start from "./component/Start";
 import Quiz from "./component/Quiz";
 import { nanoid } from "nanoid";
 import './App.css';
+const he = require("he");
 
 function App() {
   const [launch,setLaunch]=React.useState(false)  // start App
@@ -41,7 +42,7 @@ function App() {
           }})
         return ({
                 quizAnswers:modifiAnswers,  
-                question:obj.question,
+                question: he.decode(obj.question),
                 id:quizes.indexOf(obj)
               })
       }))
